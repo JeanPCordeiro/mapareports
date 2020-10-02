@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Cellulose Report')
 
 @section('content_header')
 <h1 class="m-0 text-dark"><B>Cellulose</B> Reports</h1>

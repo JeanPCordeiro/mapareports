@@ -240,6 +240,10 @@ return [
             'text'        => 'Welcome',
             'url'         => 'home',
         ],
+        [
+            'text'        => 'Input',
+            'url'         => 'input',
+        ],
         ['header' => 'COLLECT STATUS','can' => 'admin-only'],
         [
             'text'        => 'Beauvais',
@@ -326,17 +330,17 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],

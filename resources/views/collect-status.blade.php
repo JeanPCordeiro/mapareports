@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Collect Status')
 
 @section('content_header')
 <h1 class="m-0 text-dark"><B>Collect</B> Status</h1>
