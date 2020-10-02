@@ -17,6 +17,8 @@
     <form action="{{ $register_url }}" method="post">
         {{ csrf_field() }}
 
+        Self registring is disabled
+        <!--
         {{-- Name field --}}
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
@@ -90,6 +92,8 @@
         </button>
 
     </form>
+    -->
+    
 @stop
 
 @section('auth_footer')

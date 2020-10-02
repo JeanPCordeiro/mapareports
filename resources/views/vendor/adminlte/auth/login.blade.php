@@ -85,6 +85,7 @@
         </p>
     @endif
 
+<!--
     {{-- Register link --}}
     @if($register_url)
         <p class="my-0">
@@ -93,4 +94,6 @@
             </a>
         </p>
     @endif
+-->
+
 @stop
