@@ -15,7 +15,7 @@ return [
     */
 
     'title' => 'MapaSpontex Reports',
-    'title_prefix' => '',
+    'title_prefix' => 'MapaSpontex',
     'title_postfix' => '',
 
     /*
@@ -237,81 +237,52 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'        => 'Welcome',
+            'url'         => 'home',
+        ],
+        ['header' => 'COLLECT STATUS','can' => 'admin-only'],
+        [
+            'text'        => 'Beauvais',
+            'url'         => 'collect-status/BVS',
+            'icon'        => 'far fa-fw fa-file', 'can' => 'admin-only'
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'St Hyppolite',
+            'url'         => 'collect-status/SHL',
+            'icon'        => 'far fa-fw fa-file', 'can' => 'admin-only'
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'REPORTS'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Cellulose',
+            'icon'    => 'far fa-fw fa-file',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text' => 'Beauvais',
+                    'icon'        => 'fas fa-map-marker',
+                    'label'       => 2,
                     'submenu' => [
                         [
-                            'text' => 'level_two',
-                            'url'  => '#',
+                            'text' => '     Line CE',
+                            'url'  => 'cellulose-report/BVS/CE',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text' => '     Line CV',
+                            'url'  => 'cellulose-report/BVS/CV',
                         ],
                     ],
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'St Hyppolite',
+                    'icon'        => 'fas fa-map-marker',
+                    'label'       => 1,
+                    'submenu' => [
+                        [
+                            'text' => '     Line CE',
+                            'url'  => 'cellulose-report/SHL/CE',
+                        ],
+                    ],
                 ],
             ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 
