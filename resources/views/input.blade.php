@@ -26,10 +26,11 @@
                       <th>Line</th>
                       <th>Work Time</th>
                       <th>Break Time</th>
+                      <th></TH>
                       <th>Breakdown Rate</Th>
                       <th>YTD</Th>
                       <th>State</TH>
-                      <th></TH>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -40,8 +41,9 @@
                             <TD>{{ $table->date }}</TD>
                             <TD>{{ $table->factory }}</TD>
                             <TD>{{ $table->line }}</TD>
-                            <TD>{{ $table->work }}</TD>
-                            <TD>{{ $table->break }}</TD>
+                            <TD><B>{{ $table->work }}</B></TD>
+                            <TD><B>{{ $table->break }}</B></TD>
+                            <td><a href="/edit/{{ $table->id }}" role="button" class="btn btn-info btn-sm">Edit</a></td>
                             <TD>{{ $table->rate }}</TD>
                             <TD>{{ $table->ytd }}</TD>
                             <td>
@@ -55,7 +57,7 @@
                             <span class="badge bg-success">Completed</span>
                             @endif
                             </td>
-                            <td><a href="/edit/{{ $table->id }}" role="button" class="btn btn-info btn-sm">Edit</a></td>
+                            
                         </TR>
                         @endforeach
 

@@ -275,6 +275,11 @@ return [
             'icon'    => 'far fa-fw fa-file',
             'submenu' => [
                 [
+                    'text'        => 'Synthese',
+                    'url'         => 'synthcellulose',
+                    'icon'        => 'far fa-fw fa-file',
+                ],
+                [
                     'text' => 'Beauvais',
                     'icon'        => 'fas fa-map-marker',
                     'label'       => 2,
@@ -289,6 +294,7 @@ return [
                         ],
                     ],
                 ],
+
                 [
                     'text' => 'St Hippolyte',
                     'icon'        => 'fas fa-map-marker',
@@ -297,6 +303,21 @@ return [
                         [
                             'text' => '     Line CE',
                             'url'  => 'cellulose-report/SHL/CE',
+                        ],
+                    ],
+                ],
+                [
+                    'text' => 'Malgrat',
+                    'icon'        => 'fas fa-map-marker',
+                    'label'       => 2,
+                    'submenu' => [
+                        [
+                            'text' => '     Line M1',
+                            'url'  => 'cellulose-report/MLG/M1',
+                        ],
+                        [
+                            'text' => '     Line M3',
+                            'url'  => 'cellulose-report/MLG/M3',
                         ],
                     ],
                 ],

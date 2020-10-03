@@ -1,10 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'Cellulose Report')
+@section('title', 'Welcome')
 
 @section('content_header')
-<h1 class="m-0 text-dark"><B>Cellulose</B> Reports</h1>
-@stop
 
 @section('content')
 
@@ -15,7 +13,7 @@
             <!-- AREA CHART -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">{!!$factory!!} <B>Breakdown Rate</B> for line {!!$line!!}</h3>
+                    <h3 class="card-title"><B>Breakdown Rate</B> for line Cellulose Plants</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart">
@@ -27,19 +25,7 @@
             </div>
         </div>
 
-            <!-- STACKED BAR CHART -->
-            <div class="card card-success">
-                <div class="card-header">
-                    <h3 class="card-title">{!!$factory!!} <B>Work and Break hours</B> for line {!!$line!!}</h3>
-                </div>
-                <div class="card-body">
-                    <div class="chart">
-                        <canvas id="stackedChart"
-                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                    </div>
-                </div>
-                <!-- /.card-body -->
-            </div>
+
 
 
     </div>
@@ -76,32 +62,32 @@ $(function() {
     var lineChartCanvasSHL = $('#lineChartSHL').get(0).getContext('2d')
 
     var lineChartDataSHL = {
-        labels: {!!$month!!},
+        labels: {!!$months!!},
         datasets: [{
-                label: 'Monthly rate',
+                label: 'BVS',
                 fill: false,
                 backgroundColor: 'blue',
                 borderColor: 'blue',
-                data: {!!$data!!}
+                data: {!!$rateBVS!!}
             },
             {
-                label: 'YTD rate',
+                label: 'SHL',
                 fill: false,
                 borderColor: 'cyan',
                 backgroundColor: 'cyan',
                 borderDash: [5, 2],
                 pointRadius: false,
-                data: {!!$dataYTD!!}
+                data: {!!$rateSHL!!}
             },
 
             {
-                label: 'target',
+                label: 'MLG',
                 fill: false,
                 borderColor: 'red',
                 backgroundColor: 'red',
                 borderDash: [5, 5],
                 pointRadius: false,
-                data: {!!$targetrate!!}
+                data: {!!$rateMLG!!}
             },
             
         ]
@@ -130,62 +116,12 @@ $(function() {
 
     // This will get the first returned node in the jQuery collection.
     var lineChartSHL = new Chart(lineChartCanvasSHL, {
-        type: 'line',
+        type: 'bar',
         data: lineChartDataSHL,
         options: lineChartOptionsSHL
     })
 
-    //--------------
-    //- AREA CHART -
-    //--------------
-
-
-    var stackedChartCanvas = $('#stackedChart').get(0).getContext('2d')
-
-    var stackedChartData = {
-        labels: {!!$month!!},
-        datasets: [{
-                label: 'Work',
-                fill: true,
-                borderColor: 'green',
-                backgroundColor: 'green',
-                data: {!!$work!!}
-            },
-            {
-                label: 'Break',
-                fill: true,
-                borderColor: 'red',
-                backgroundColor: 'red',
-                data: {!!$break!!}
-            },
-
-
-            
-        ]
-    }
-
-    var stackedChartOptions = {
-        maintainAspectRatio: false,
-        responsive: true,
-        legend: {
-            display: true
-        },
-        scales: {
-            xAxes: [{
-                stacked: true,
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-    }
-
-    // This will get the first returned node in the jQuery collection.
-    var stackedChartSHL = new Chart(stackedChartCanvas, {
-        type: 'bar',
-        data: stackedChartData,
-        options: stackedChartOptions
-    })
+ 
 })
 </script>
 

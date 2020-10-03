@@ -16,11 +16,13 @@ class InputController extends Controller
     {
         //
 
-        $campaigndate = date("Ym"); 
+        $campaigndate = date("Y"); 
         $user = auth()->user();
         $factory = $user->factory;
-        
-        $mycollectes = DB::table('collectes')->where([['factory', 'like', $factory],['date', 'like', $campaigndate]])->orderByRaw('date DESC')->get(); 
+
+        if ($user->level == 3) $campaigndate ="%";
+
+        $mycollectes = DB::table('collectes')->where([['factory', 'like', $factory],['date', 'like', $campaigndate.'%']])->orderByRaw('date DESC')->get(); 
         return view('input',compact('mycollectes'));
     }
 
@@ -98,11 +100,12 @@ class InputController extends Controller
               ->where('id',$id)
               ->update(['state' => 1]);
 
-        $campaigndate = date("Ym"); 
+        $campaigndate = date("Y"); 
         $user = auth()->user();
         $factory = $user->factory;
+        if ($user->level == 3) $campaigndate ="%";
         
-        $mycollectes = DB::table('collectes')->where([['factory', 'like', $factory],['date', 'like', $campaigndate]])->orderByRaw('date DESC')->get(); 
+        $mycollectes = DB::table('collectes')->where([['factory', 'like', $factory],['date', 'like', $campaigndate.'%']])->orderByRaw('date DESC')->get(); 
         return view('input',compact('mycollectes'));
     }
 

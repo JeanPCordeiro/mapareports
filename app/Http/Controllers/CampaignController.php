@@ -77,9 +77,14 @@ class CampaignController extends Controller
         $lines = DB::table('lines')->get();
         foreach ($lines as $line) {
             //echo $user->name;
+
+            $existe = DB::table('collectes')->where([['factory', '=', $line->factory],['line', '=', $line->line],['date', '=', $newdate]])->count();
+            if ($existe == 0) {
             DB::table('collectes')->insert(
                 ['date' => $newdate, 'factory' => $line->factory, 'line' => $line->line, 'work' => 0, 'break' => 0, 'rate' => 0, 'ytd' => 0, 'state' => 0]
             );
+        }
+
         }
         return view('home');
     }

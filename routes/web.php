@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/cellulose', [App\Http\Controllers\CelluloseController::class, 'index'])->name('cellulose');
+Route::get('/synthcellulose', [App\Http\Controllers\CelluloseSyntheseController::class, 'index'])->name('synthcellulose');
 Route::get('/collect-status/{factory}', [App\Http\Controllers\CollectStatusController::class, 'index'])->name('collect-status');
 Route::get('/cellulose-report/{factory}/{line}', [App\Http\Controllers\CelluloseReportController::class, 'index'])->name('cellulose-report');
 Route::get('/input', [App\Http\Controllers\InputController::class, 'index'])->name('input');
