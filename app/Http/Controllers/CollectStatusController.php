@@ -29,7 +29,7 @@ class CollectStatusController extends Controller
 
         //$factories = DB::table('collectes')->select('factory','line','state')->distinct()->where('date','202008')->get();
     
-        if (Gate::allows('admin-only')) {
+        if (Gate::allows('admin')) {
             // The current user can edit settings
             $factories = DB::table('collectes')->select('factory','line','state')->distinct()->where([['factory', '=', $factory],['date', '=', '202008']])->get();
             return view('collect-status',compact('factories'));

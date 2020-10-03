@@ -240,22 +240,36 @@ return [
             'text'        => 'Welcome',
             'url'         => 'home',
         ],
+        ['header' => ' MAINTENANCE COLLECT','can' => ['admin','write']],
         [
-            'text'        => 'Input',
+            'text'        => 'Input Data',
             'url'         => 'input',
+            'can'         => ['write','admin'],
         ],
-        ['header' => 'COLLECT STATUS','can' => 'admin-only'],
+        ['header' => 'MAINTENANCE CAMPAIGNS','can' => 'admin'],
         [
-            'text'        => 'Beauvais',
-            'url'         => 'collect-status/BVS',
-            'icon'        => 'far fa-fw fa-file', 'can' => 'admin-only'
+            'text'        => 'Generate',
+            'url'         => 'campaign',
+            'can'         => 'admin',
         ],
         [
-            'text'        => 'St Hyppolite',
-            'url'         => 'collect-status/SHL',
-            'icon'        => 'far fa-fw fa-file', 'can' => 'admin-only'
+        'text'    => 'Status',
+        'icon'    => 'far fa-fw fa-file',
+        'can' => 'admin',
+        'submenu' => [
+            [
+                'text'        => 'Beauvais',
+                'url'         => 'collect-status/BVS',
+                'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+            ],
+            [
+                'text'        => 'St Hippolyte',
+                'url'         => 'collect-status/SHL',
+                'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+            ],
         ],
-        ['header' => 'REPORTS'],
+    ],
+        ['header' => 'MAINTENANCE REPORTS'],
         [
             'text'    => 'Cellulose',
             'icon'    => 'far fa-fw fa-file',
@@ -276,7 +290,7 @@ return [
                     ],
                 ],
                 [
-                    'text' => 'St Hyppolite',
+                    'text' => 'St Hippolyte',
                     'icon'        => 'fas fa-map-marker',
                     'label'       => 1,
                     'submenu' => [

@@ -26,6 +26,8 @@ Route::get('/cellulose-report/{factory}/{line}', [App\Http\Controllers\Cellulose
 Route::get('/input', [App\Http\Controllers\InputController::class, 'index'])->name('input');
 Route::get('/edit/{line}', [App\Http\Controllers\InputController::class, 'edit'])->name('edit');
 Route::post('/update', [App\Http\Controllers\InputController::class, 'update'])->name('update');
+Route::get('/campaign', [App\Http\Controllers\CampaignController::class, 'index'])->name('campaign');
+Route::post('/newcampaign', [App\Http\Controllers\CampaignController::class, 'update'])->name('newcampaign');
 
 
 Route::get('/home', function() {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
-class InputController extends Controller
+class CampaignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,8 @@ class InputController extends Controller
     public function index()
     {
         //
-
         $campaigndate = date("Ym"); 
-        $user = auth()->user();
-        $factory = $user->factory;
-        
-        $mycollectes = DB::table('collectes')->where([['factory', 'like', $factory],['date', 'like', $campaigndate]])->orderByRaw('date DESC')->get(); 
-        return view('input',compact('mycollectes'));
+        return view('campaign',compact('campaigndate'));
     }
 
     /**
@@ -65,8 +60,6 @@ class InputController extends Controller
     public function edit($id)
     {
         //
-        $mycollectes = DB::table('collectes')->where('id', '=', $id)->get();
-        return view('edit',compact('id','mycollectes'));
     }
 
     /**
@@ -79,31 +72,16 @@ class InputController extends Controller
     public function update(Request $request)
     {
         //
-        $work = $_POST['work'];
-        $break = $_POST['break'];
-        $id = $_POST['id'];
+        $newdate = $_POST['newdate'];
 
-        $rate = $break/$work*100;
-
-        $affected = DB::table('collectes')
-              ->where('id',$id)
-              ->update(['break' => $break]);
-        $affected = DB::table('collectes')
-              ->where('id',$id)
-              ->update(['work' => $work]);
-        $affected = DB::table('collectes')
-              ->where('id',$id)
-              ->update(['rate' => $rate]);
-              $affected = DB::table('collectes')
-              ->where('id',$id)
-              ->update(['state' => 1]);
-
-        $campaigndate = date("Ym"); 
-        $user = auth()->user();
-        $factory = $user->factory;
-        
-        $mycollectes = DB::table('collectes')->where([['factory', 'like', $factory],['date', 'like', $campaigndate]])->orderByRaw('date DESC')->get(); 
-        return view('input',compact('mycollectes'));
+        $lines = DB::table('lines')->get();
+        foreach ($lines as $line) {
+            //echo $user->name;
+            DB::table('collectes')->insert(
+                ['date' => $newdate, 'factory' => $line->factory, 'line' => $line->line, 'work' => 0, 'break' => 0, 'rate' => 0, 'ytd' => 0, 'state' => 0]
+            );
+        }
+        return view('home');
     }
 
     /**
