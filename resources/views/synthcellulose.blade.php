@@ -73,20 +73,16 @@ $(function() {
             {
                 label: 'SHL',
                 fill: false,
-                borderColor: 'cyan',
-                backgroundColor: 'cyan',
-                borderDash: [5, 2],
-                pointRadius: false,
+                backgroundColor: 'orange',
+                borderColor: 'orange',
                 data: {!!$rateSHL!!}
             },
 
             {
                 label: 'MLG',
                 fill: false,
-                borderColor: 'red',
-                backgroundColor: 'red',
-                borderDash: [5, 5],
-                pointRadius: false,
+                backgroundColor: 'brown',
+                borderColor: 'brown',
                 data: {!!$rateMLG!!}
             },
             
@@ -116,7 +112,7 @@ $(function() {
 
     // This will get the first returned node in the jQuery collection.
     var lineChartSHL = new Chart(lineChartCanvasSHL, {
-        type: 'bar',
+        type: 'line',
         data: lineChartDataSHL,
         options: lineChartOptionsSHL
     })
