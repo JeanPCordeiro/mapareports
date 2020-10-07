@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Collecte extends Model
+class Kpi extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'date' ,'factory' ,'line','work' ,'break' 
+        'scope' ,'item' ,'unit','domain' ,'site' 
     ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinesTable extends Migration
+class CreateBreakdownsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,17 @@ class CreateLinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lines', function (Blueprint $table) {
+        Schema::create('breakdowns', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+            $table->string('date');
             $table->string('factory');
             $table->string('line');
-            $table->string('rate')->default(5);
-            $table->timestamps();
+            $table->float('work');
+            $table->float('break');
+            $table->float('rate');
+            $table->float('ytd');
+            $table->integer('state');
         });
     }
 
@@ -29,6 +34,6 @@ class CreateLinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lines');
+        Schema::dropIfExists('breakdowns');
     }
 }

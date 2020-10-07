@@ -240,11 +240,81 @@ return [
             'text'        => 'Welcome',
             'url'         => 'home',
         ],
-        ['header' => ' MAINTENANCE COLLECT','can' => ['admin','write']],
+        ['header' => 'ADMINISTRATION','can' => 'admin'],
         [
-            'text'        => 'Input Data',
-            'url'         => 'input',
+            'text'        => 'Users',
+            'url'         => 'users',
+            'can'         => 'admin',
+        ],
+        [
+            'text'        => 'Lines',
+            'url'         => 'lines',
+            'can'         => 'admin',
+        ],
+        [
+            'text'        => 'KPIs',
+            'url'         => 'kpis',
+            'can'         => 'admin',
+        ],
+        ['header' => 'COLLECT DATA','can' => ['admin','write']],
+        [
+            'text'        => 'Maintenance',
+            'url'         => 'breakdowns',
             'can'         => ['write','admin'],
+        ],
+        [
+            'text'        => 'RECOS',
+            'url'         => 'recos',
+            'can'         => ['write','admin'],
+        ],
+        [
+            'text'        => 'KPI',
+            'url'         => 'kpis',
+            'can'         => ['write','admin'],
+        ],
+        ['header' => 'CAMPAIGNS','can' => 'admin'],
+        [
+            'text'        => 'Generate',
+            'can'         => 'admin',
+            'submenu' => [
+                [
+                    'text'        => 'Maintenance',
+                    'url'         => 'breakdowns/store',
+                    'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+                ],
+                [
+                    'text'        => 'RECO',
+                    'url'         => 'collect-status/SHL',
+                    'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+                ],
+                [
+                    'text'        => 'KPI',
+                    'url'         => 'collect-status/SHL',
+                    'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+                ],
+            ],
+        ],
+        [
+        'text'    => 'Status',
+        'icon'    => 'far fa-fw fa-file',
+        'can' => 'admin',
+        'submenu' => [
+            [
+                'text'        => 'Maintenance',
+                'url'         => 'collect-status/BVS',
+                'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+            ],
+            [
+                'text'        => 'RECO',
+                'url'         => 'collect-status/SHL',
+                'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+            ],
+            [
+                'text'        => 'KPI',
+                'url'         => 'collect-status/SHL',
+                'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
+            ],
+        ],
         ],
         ['header' => 'MAINTENANCE CAMPAIGNS','can' => 'admin'],
         [
@@ -268,7 +338,7 @@ return [
                 'icon'        => 'far fa-fw fa-file', 'can' => 'admin',
             ],
         ],
-    ],
+        ],
         ['header' => 'MAINTENANCE REPORTS'],
         [
             'text'    => 'Cellulose',

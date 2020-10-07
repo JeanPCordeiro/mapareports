@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinesTable extends Migration
+class CreateKpiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateLinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lines', function (Blueprint $table) {
+        Schema::create('kpis', function (Blueprint $table) {
             $table->id();
-            $table->string('factory');
-            $table->string('line');
-            $table->string('rate')->default(5);
+            $table->string('scope');
+            $table->string('item');
+            $table->string('unit');
+            $table->string('domain');
+            $table->string('site');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateLinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lines');
+        Schema::dropIfExists('kpi');
     }
 }
