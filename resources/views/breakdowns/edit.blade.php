@@ -39,7 +39,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Date</th>
-                                    <th>Factory</th>
+                                    <th>Domain</th>
+                                    <th>Site</th>
                                     <th>Line</th>
                                     <th>Work Time</th>
                                     <th>Break Time</th>
@@ -57,7 +58,8 @@
                                                 <div class="form-group">
                                                     <TD>{{ $breakdown->id }}</TD>
                                                     <TD>{{ $breakdown->date }}</TD>
-                                                    <TD>{{ $breakdown->factory }}</TD>
+                                                    <TD>{{ $breakdown->domain }}</TD>
+                                                    <TD>{{ $breakdown->site }}</TD>
                                                     <TD>{{ $breakdown->line }}</TD>
                                                     <TD>
                                                         <input type="text" name="work" value="{{ $breakdown->work }}"

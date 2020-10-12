@@ -9,12 +9,20 @@
 @section('content')
 
 <div class="container-fluid">
+
+<div class="pull-left">
+                <a class="btn btn-primary" href="{{ route('graphbreaks.index') }}"> Back</a>
+            </div>
+            <P>
     <div class="row">
+
+
+
         <div class="col-md-6">
             <!-- AREA CHART -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">{!!$factory!!} <B>Breakdown Rate</B> for line {!!$line!!}</h3>
+                    <h3 class="card-title">{!!$site!!} <B>Breakdown Rate</B> for line {!!$line!!}</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart">
@@ -29,7 +37,7 @@
             <!-- STACKED BAR CHART -->
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title">{!!$factory!!} <B>Work and Break hours</B> for line {!!$line!!}</h3>
+                    <h3 class="card-title">{!!$site!!} <B>Work and Break hours</B> for line {!!$line!!}</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart">

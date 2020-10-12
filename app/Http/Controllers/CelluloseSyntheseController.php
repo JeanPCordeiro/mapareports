@@ -30,14 +30,14 @@ class CelluloseSyntheseController extends Controller
         //$monthCV = DB::table('collectes')->where('factory', 'BEAUVAIS')->where('line', 'CV')->orderByRaw('date ASC')->pluck('date');
         //$targetrate = json_encode(array(5,5,5,5,5,5,5,5,5,5,5,5));
 
-        $months = DB::table('collectes')->where([['factory', '=', 'BVS'],['line', '=', 'CE']])->limit(12)->orderByRaw('date DESC')->pluck('date')->reverse()->values();
+        $months = DB::table('breakdowns')->where([['site', '=', 'BVS'],['line', '=', 'CE']])->limit(12)->orderByRaw('date DESC')->pluck('date')->reverse()->values();
 
         $workBVS = collect();
         $breakBVS = collect();
         $rateBVS = collect();
         foreach ($months as $month) {
-            $work = DB::table('collectes')->where([['factory', '=', 'BVS'],['date', '=', $month]])->sum('work');
-            $break = DB::table('collectes')->where([['factory', '=', 'BVS'],['date', '=', $month]])->sum('break');
+            $work = DB::table('breakdowns')->where([['site', '=', 'BVS'],['date', '=', $month]])->sum('work');
+            $break = DB::table('breakdowns')->where([['site', '=', 'BVS'],['date', '=', $month]])->sum('break');
             $rate = ($work == 0) ? 0 : $break/$work*100;
             $workBVS->push($work);
             $breakBVS->push($break);
@@ -47,8 +47,8 @@ class CelluloseSyntheseController extends Controller
         $breakSHL = collect();
         $rateSHL = collect();
         foreach ($months as $month) {
-            $work = DB::table('collectes')->where([['factory', '=', 'SHL'],['date', '=', $month]])->sum('work');
-            $break = DB::table('collectes')->where([['factory', '=', 'SHL'],['date', '=', $month]])->sum('break');
+            $work = DB::table('breakdowns')->where([['site', '=', 'SHL'],['date', '=', $month]])->sum('work');
+            $break = DB::table('breakdowns')->where([['site', '=', 'SHL'],['date', '=', $month]])->sum('break');
             $rate = ($work == 0) ? 0 : $break/$work*100;          
             $workSHL->push($work);
             $breakSHL->push($break);
@@ -58,8 +58,8 @@ class CelluloseSyntheseController extends Controller
         $breakMLG = collect();
         $rateMLG = collect();
         foreach ($months as $month) {
-            $work = DB::table('collectes')->where([['factory', '=', 'MLG'],['date', '=', $month]])->sum('work');
-            $break = DB::table('collectes')->where([['factory', '=', 'MLG'],['date', '=', $month]])->sum('break');
+            $work = DB::table('breakdowns')->where([['site', '=', 'MLG'],['date', '=', $month]])->sum('work');
+            $break = DB::table('breakdowns')->where([['site', '=', 'MLG'],['date', '=', $month]])->sum('break');
             $rate = ($work == 0) ? 0 : $break/$work*100;
             $workMLG->push($work);
             $breakMLG->push($break);

@@ -24,16 +24,18 @@
                     </div>
                 </div>
 
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <tr>
-                            <th>Scope</th>
-                            <th>Item</th>
-                            <th>Unit</th>
-                            <th>Domain</th>
-                            <th>Site</th>
-                            <th>Action</th>
-                        </tr>
+                <div class="card-body">
+                    <table id="mytable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Scope</th>
+                                <th>Item</th>
+                                <th>Unit</th>
+                                <th>Domain</th>
+                                <th>Site</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
                         @foreach ($kpis as $kpi)
                         <tr>
                             <td>{{ $kpi->scope }}</td>
@@ -44,7 +46,7 @@
                             <td>
                                 <form action="{{ route('kpis.destroy',$kpi->id) }}" method="POST">
 
-                                    <a class="btn btn-info btn-xs" href="{{ route('kpis.show',$kpi->id) }}">Show</a>
+                                    <a class="btn btn-info btn-xs" href="{{ route('kpis.show',$kpi->id) }}">Clone</a>
 
                                     <a class="btn btn-primary btn-xs" href="{{ route('kpis.edit',$kpi->id) }}">Edit</a>
 
@@ -81,4 +83,20 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script>
+$(function() {
+    $("#mytable").DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+    });
+});
+</script>
+
+
 @stop

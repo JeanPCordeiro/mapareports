@@ -23,7 +23,7 @@ class BreakdownController extends Controller
         $factory = $user->factory;
         if ($user->level == 3) $campaigndate ="%";
 
-        $breakdowns = DB::table('breakdowns')->where([['factory', 'like', $factory],['date', 'like', $campaigndate.'%']])->orderByRaw('date DESC')->get(); 
+        $breakdowns = DB::table('breakdowns')->where([['site', 'like', $factory],['date', 'like', $campaigndate.'%']])->orderByRaw('date DESC')->get(); 
 
         return view('breakdowns.index',compact('breakdowns'));
     }

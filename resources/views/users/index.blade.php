@@ -24,15 +24,17 @@
                     </div>
                 </div>
 
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Level</th>
-                            <th>Factory</th>
-                            <th>Action</th>
-                        </tr>
+                <div class="card-body">
+                    <table id="mytable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Level</th>
+                                <th>Factory</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
@@ -43,9 +45,11 @@
                                 <td>
                                     <form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
-                                        <a class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">Show</a>
+                                        <a class="btn btn-info btn-xs"
+                                            href="{{ route('users.show',$user->id) }}">Show</a>
 
-                                        <a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                        <a class="btn btn-primary btn-xs"
+                                            href="{{ route('users.edit',$user->id) }}">Edit</a>
 
                                         @csrf
                                         @method('DELETE')
@@ -79,4 +83,20 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script>
+$(function() {
+    $("#mytable").DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+    });
+});
+</script>
+
+
 @stop

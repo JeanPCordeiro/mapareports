@@ -240,38 +240,79 @@ return [
             'text'        => 'Welcome',
             'url'         => 'home',
         ],
-        ['header' => 'ADMINISTRATION','can' => 'admin'],
+
         [
-            'text'        => 'Users',
-            'url'         => 'users',
+            'text'        => 'ADMINISTRATION',
+            'icon'        => 'far fa-fw fa-file',
             'can'         => 'admin',
+            'submenu' => [
+                [
+                    'text'        => 'Users',
+                    'url'         => 'users',
+                    'can'         => 'admin',
+                ],
+                [
+                    'text'        => 'Lines',
+                    'url'         => 'lines',
+                    'can'         => 'admin',
+                ],
+                [
+                    'text'        => 'KPIs',
+                    'url'         => 'kpis',
+                    'can'         => 'admin',
+                ],
+                [
+                    'text'        => 'RECOs',
+                    'url'         => 'tobedone',
+                    'can'         => 'admin',
+                ],
+            ],
         ],
+
         [
-            'text'        => 'Lines',
-            'url'         => 'lines',
-            'can'         => 'admin',
-        ],
-        [
-            'text'        => 'KPIs',
-            'url'         => 'kpis',
-            'can'         => 'admin',
-        ],
-        ['header' => 'COLLECT DATA','can' => ['admin','write']],
-        [
-            'text'        => 'Maintenance',
-            'url'         => 'breakdowns',
+            'text'        => 'COLLECT DATA',
+            'icon'        => 'far fa-fw fa-file',
             'can'         => ['write','admin'],
+            'submenu' => [
+                [
+                    'text'        => 'Maintenance',
+                    'url'         => 'breakdowns',
+                    'can'         => ['write','admin'],
+                ],
+                [
+                    'text'        => 'KPI',
+                    'url'         => 'tobedone',
+                    'can'         => ['write','admin'],
+                ],
+                [
+                    'text'        => 'RECOS',
+                    'url'         => 'tobedone',
+                    'can'         => ['write','admin'],
+                ],
+            ],
         ],
+
         [
-            'text'        => 'RECOS',
-            'url'         => 'recos',
-            'can'         => ['write','admin'],
+            'text'        => 'REPORTS',
+            'icon'        => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text'        => 'Maintenance',
+                    'url'         => 'graphbreaks',
+                ],
+                [
+                    'text'        => 'RECOS',
+                    'url'         => 'tobedone',
+                ],
+                [
+                    'text'        => 'KPI',
+                    'url'         => 'tobedone',
+
+                ],
+            ],
         ],
-        [
-            'text'        => 'KPI',
-            'url'         => 'kpis',
-            'can'         => ['write','admin'],
-        ],
+
+
         ['header' => 'CAMPAIGNS','can' => 'admin'],
         [
             'text'        => 'Generate',

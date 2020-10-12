@@ -14,26 +14,28 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 @endif
-   
+
 <form action="{{ route('lines.store') }}" method="POST">
     @csrf
-  
-     <div class="row">
+
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Factory:</strong>
-                <input type="text" name="factory" class="form-control" placeholder="Factory">
+                <strong>Domain:</strong>
+                <input type="text" name="domain" class="form-control" placeholder="Domain">
+                <strong>Site:</strong>
+                <input type="text" name="site" class="form-control" placeholder="Site">
                 <strong>Line:</strong>
                 <input type="text" name="line" class="form-control" placeholder="Line">
                 <strong>Rate:</strong>
@@ -41,10 +43,10 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </div>
     </div>
-   
+
 </form>
 
 @section('content')

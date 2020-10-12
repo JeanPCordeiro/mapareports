@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Collecte extends Model
+class Siteline extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'date' ,'factory' ,'line','work' ,'break' 
+        'domain','site', 'line', 'rate',
     ];
 }

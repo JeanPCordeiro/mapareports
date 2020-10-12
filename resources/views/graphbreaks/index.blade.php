@@ -19,22 +19,18 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">List Lines</h3>
-                    <div class="card-tools">
-                        <a class="btn btn-success" href="{{ route('lines.create') }}">Create New Line</a>
-                    </div>
+
                 </div>
 
-                <div class="card-body">
-                    <table id="mytable" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Domain</th>
-                                <th>Site</th>
-                                <th>Line</th>
-                                <th>Rate</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tr>
+                            <th>Domain</th>
+                            <th>Site</th>
+                            <th>Line</th>
+                            <th>Rate</th>
+                            <th>Action</th>
+                        </tr>
                         @foreach ($lines as $line)
                         <tr>
                             <td>{{ $line->domain }}</td>
@@ -42,16 +38,14 @@
                             <td>{{ $line->line }}</td>
                             <td>{{ $line->rate }}</td>
                             <td>
-                                <form action="{{ route('lines.destroy',$line->id) }}" method="POST">
 
-                                    <a class="btn btn-primary btn-xs"
-                                        href="{{ route('lines.edit',$line->id) }}">Edit</a>
 
-                                    @csrf
-                                    @method('DELETE')
+                                <a class="btn btn-info btn-xs" href="{{ route('graphbreaks.show',$line->id) }}">View
+                                    last 12 months graph</a>
 
-                                    <button type="submit" class="btn btn-danger btn-xs">Delete</button>
-                                </form>
+
+
+
                             </td>
                         </tr>
                         @endforeach
@@ -81,20 +75,4 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-
-<script>
-$(function() {
-    $("#mytable").DataTable({
-        "paging": true,
-        "lengthChange": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-    });
-});
-</script>
-
-
 @stop

@@ -17,6 +17,7 @@ use App\Http\Controllers\KpiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LineController;
 use App\Http\Controllers\BreakdownController;
+use App\Http\Controllers\GraphBreakController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,7 +29,11 @@ Route::resource('kpis', KpiController::class);
 Route::resource('users', UserController::class);
 Route::resource('lines', LineController::class);
 Route::resource('breakdowns', BreakdownController::class);
+Route::resource('graphbreaks', GraphBreakController::class);
 
+Route::get('/tobedone', function() {
+    return view('tobedone');
+})->name('tobedone')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/cellulose', [App\Http\Controllers\CelluloseReportController::class, 'index'])->name('cellulose');

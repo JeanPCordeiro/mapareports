@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Line;
+use App\Models\Siteline;
 use Illuminate\Http\Request;
 
 class LineController extends Controller
@@ -15,7 +15,7 @@ class LineController extends Controller
     public function index()
     {
         //
-        $lines = Line::all();
+        $lines = Siteline::all();
     
         return view('lines.index',compact('lines'));
     }
@@ -41,12 +41,13 @@ class LineController extends Controller
     {
         //
         $request->validate([
-            'factory' => 'required',
+            'domain' => 'required',
+            'site' => 'required',
             'line' => 'required',
             'rate' => 'required',
         ]);
     
-        Product::create($request->all());
+        Siteline::create($request->all());
      
         return redirect()->route('lines.index')
                         ->with('success','Line created successfully.');
@@ -58,10 +59,9 @@ class LineController extends Controller
      * @param  \App\Models\Line  $line
      * @return \Illuminate\Http\Response
      */
-    public function show(Line $line)
+    public function show(Siteline $line)
     {
         //
-        return view('lines.show',compact('line'));
     }
 
     /**
@@ -70,7 +70,7 @@ class LineController extends Controller
      * @param  \App\Models\Line  $line
      * @return \Illuminate\Http\Response
      */
-    public function edit(Line $line)
+    public function edit(Siteline $line)
     {
         //
         return view('lines.edit',compact('line'));
@@ -83,11 +83,12 @@ class LineController extends Controller
      * @param  \App\Models\Line  $line
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Line $line)
+    public function update(Request $request, Siteline $line)
     {
         //
         $request->validate([
-            'factory' => 'required',
+            'domain' => 'required',
+            'site' => 'required',
             'line' => 'required',
             'rate' => 'required',
         ]);
@@ -105,12 +106,12 @@ class LineController extends Controller
      * @param  \App\Models\Line  $line
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Line $line)
+    public function destroy(Siteline $line)
     {
         //
         $line->delete();
     
-        return redirect()->route('liness.index')
+        return redirect()->route('lines.index')
                         ->with('success','Line deleted successfully');
     }
 }
